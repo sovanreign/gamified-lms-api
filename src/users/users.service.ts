@@ -35,6 +35,12 @@ export class UsersService {
     });
   }
 
+  findOneByUsername(username: string) {
+    return this.db.user.findFirst({
+      where: { username },
+    });
+  }
+
   async update(id: string, updateUserDto: UpdateUserDto) {
     if (updateUserDto.password) {
       updateUserDto.password = await passwordEncryption(updateUserDto.password);
