@@ -19,8 +19,8 @@ export class ModulesService {
     return `This action returns a #${id} module`;
   }
 
-  update(id: string, updateModuleDto: UpdateModuleDto) {
-    return this.db.module.update({
+  async update(id: string, updateModuleDto: UpdateModuleDto) {
+    await this.db.module.update({
       where: { id },
       data: updateModuleDto,
     });

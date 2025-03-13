@@ -8,8 +8,8 @@ import { LessonCompleted } from './dto/lesson-completed.dto';
 export class LessonsService {
   constructor(private db: DatabaseService) {}
 
-  markAsDone(body: LessonCompleted) {
-    return this.db.studentLesson.create({
+  async markAsDone(body: LessonCompleted) {
+    await this.db.studentLesson.create({
       data: body,
     });
   }
@@ -30,8 +30,8 @@ export class LessonsService {
     return `This action returns a #${id} lesson`;
   }
 
-  update(id: string, updateLessonDto: UpdateLessonDto) {
-    return this.db.lesson.update({
+  async update(id: string, updateLessonDto: UpdateLessonDto) {
+    await this.db.lesson.update({
       where: { id },
       data: updateLessonDto,
     });

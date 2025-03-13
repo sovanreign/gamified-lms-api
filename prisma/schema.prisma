@@ -85,3 +85,14 @@ model StudentLesson {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model Video {
+  id          String  @id @default(uuid())
+  name        String
+  description String
+  link        String
+  isOpen      Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
