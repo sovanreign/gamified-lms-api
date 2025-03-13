@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { ModulesModule } from './modules/modules.module';
 import { LessonsModule } from './lessons/lessons.module';
 import { VideosModule } from './videos/videos.module';
+import { ActivitiesModule } from './activities/activities.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { VideosModule } from './videos/videos.module';
     ModulesModule,
     LessonsModule,
     VideosModule,
+    ActivitiesModule,
   ],
   controllers: [],
   providers: [],
