@@ -56,34 +56,30 @@ export class UsersService {
     let where: Prisma.UserWhereInput = {};
 
     if (q) {
-      where = {
-        AND: [
-          {
-            OR: [
-              { firstName: { contains: q, mode: 'insensitive' } },
-              { lastName: { contains: q, mode: 'insensitive' } },
-            ],
-          },
-        ],
-      };
+      where.OR = [
+        { firstName: { contains: q, mode: 'insensitive' } },
+        { lastName: { contains: q, mode: 'insensitive' } },
+      ];
     }
 
     if (filterByRole && Object.values(Role).includes(filterByRole as Role)) {
-      where = {
-        role: filterByRole as Role,
-      };
+      where.role = filterByRole as Role;
     }
 
     return this.db.user.findMany({
       where,
-      select: prismaExclude('User', ['password']),
+      include: {
+        teacher: true,
+      },
     });
   }
 
   findOne(id: string) {
     return this.db.user.findUniqueOrThrow({
       where: { id },
-      select: prismaExclude('User', ['password']),
+      include: {
+        teacher: true,
+      },
     });
   }
 
