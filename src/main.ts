@@ -19,10 +19,6 @@ async function bootstrap() {
   app.use(
     '/uploads',
     (req, res, next) => {
-      console.log(
-        'Static file requested:',
-        join(process.cwd(), 'uploads', req.url),
-      );
       next();
     },
     express.static(join(process.cwd(), 'uploads')),

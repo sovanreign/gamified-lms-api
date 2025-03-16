@@ -10,9 +10,30 @@ export class LessonsService {
   constructor(private db: DatabaseService) {}
 
   async markAsDone(body: LessonCompleted) {
+    // First, store the lesson completion record
     await this.db.studentLesson.create({
       data: body,
     });
+
+    // Fetch the lesson details to get the `expPoints`
+    const lesson = await this.db.lesson.findUnique({
+      where: { id: body.lessonId },
+      select: { points: true }, // Get the lesson's experience points
+    });
+
+    if (!lesson) {
+      throw new Error('Lesson not found'); // Handle error if lesson doesn't exist
+    }
+
+    // Update the user's expPoints by adding the lesson's expPoints
+    await this.db.user.update({
+      where: { id: body.studentId },
+      data: {
+        expPoints: { increment: lesson.points }, // 🔥 Increase expPoints dynamically
+      },
+    });
+
+    return { message: 'Lesson marked as done, expPoints updated!' };
   }
 
   create(createLessonDto: CreateLessonDto) {
@@ -40,6 +61,10 @@ export class LessonsService {
     return this.db.lesson.findUniqueOrThrow({
       where: {
         id,
+      },
+      include: {
+        module: true,
+        StudentLesson: true,
       },
     });
   }
