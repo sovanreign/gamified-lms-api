@@ -19,6 +19,171 @@ async function main() {
     },
   });
 
+  const teacher1 = await prisma.user.upsert({
+    where: { username: 'amelia.rose' },
+    update: {},
+    create: {
+      email: 'amelia.rose@example.com',
+      username: 'amelia.rose',
+      password: await passwordEncryption('password'),
+      role: 'Teacher',
+      firstName: 'Amelia',
+      age: 42,
+      gender: 'Female',
+      uniqueId: 'TS-2025-010',
+    },
+  });
+
+  const kinderStudent1 = await prisma.user.upsert({
+    where: { username: 'aiden.kim' },
+    update: {},
+    create: {
+      username: 'aiden.kim',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Aiden',
+      age: 5,
+      gender: 'Male',
+      uniqueId: 'KS-2025-001',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent2 = await prisma.user.upsert({
+    where: { username: 'emma.jones' },
+    update: {},
+    create: {
+      username: 'emma.jones',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Emma',
+      age: 5,
+      gender: 'Female',
+      uniqueId: 'KS-2025-002',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent3 = await prisma.user.upsert({
+    where: { username: 'lucas.brown' },
+    update: {},
+    create: {
+      username: 'lucas.brown',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Lucas',
+      age: 5,
+      gender: 'Male',
+      uniqueId: 'KS-2025-003',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent4 = await prisma.user.upsert({
+    where: { username: 'olivia.green' },
+    update: {},
+    create: {
+      username: 'olivia.green',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Olivia',
+      age: 5,
+      gender: 'Female',
+      uniqueId: 'KS-2025-004',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent5 = await prisma.user.upsert({
+    where: { username: 'mason.wilson' },
+    update: {},
+    create: {
+      username: 'mason.wilson',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Mason',
+      age: 6,
+      gender: 'Male',
+      uniqueId: 'KS-2025-005',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent6 = await prisma.user.upsert({
+    where: { username: 'sophia.taylor' },
+    update: {},
+    create: {
+      username: 'sophia.taylor',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Sophia',
+      age: 6,
+      gender: 'Female',
+      uniqueId: 'KS-2025-006',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent7 = await prisma.user.upsert({
+    where: { username: 'ethan.davis' },
+    update: {},
+    create: {
+      username: 'ethan.davis',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Ethan',
+      age: 5,
+      gender: 'Male',
+      uniqueId: 'KS-2025-007',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent8 = await prisma.user.upsert({
+    where: { username: 'ava.miller' },
+    update: {},
+    create: {
+      username: 'ava.miller',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Ava',
+      age: 5,
+      gender: 'Female',
+      uniqueId: 'KS-2025-008',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent9 = await prisma.user.upsert({
+    where: { username: 'noah.moore' },
+    update: {},
+    create: {
+      username: 'noah.moore',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Noah',
+      age: 6,
+      gender: 'Male',
+      uniqueId: 'KS-2025-009',
+      teacherId: teacher1.id,
+    },
+  });
+
+  const kinderStudent10 = await prisma.user.upsert({
+    where: { username: 'isabella.lee' },
+    update: {},
+    create: {
+      username: 'isabella.lee',
+      password: await passwordEncryption('password'),
+      role: 'Student',
+      firstName: 'Isabella',
+      age: 5,
+      gender: 'Female',
+      uniqueId: 'KS-2025-010',
+      teacherId: teacher1.id,
+    },
+  });
+
   const module1 = await prisma.module.upsert({
     where: { name: 'In the Beginning God Created the World' },
     update: {},
