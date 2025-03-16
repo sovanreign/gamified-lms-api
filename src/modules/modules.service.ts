@@ -12,7 +12,12 @@ export class ModulesService {
   }
 
   findAll() {
-    return this.db.module.findMany({});
+    return this.db.module.findMany({
+      include: {
+        lessons: true,
+      },
+      orderBy: [{ isOpen: 'desc' }, { createdAt: 'asc' }],
+    });
   }
 
   findOne(id: number) {

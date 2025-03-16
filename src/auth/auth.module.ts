@@ -31,10 +31,10 @@ import { JwtAuthGuard } from './guard/jwt-auth.guard';
     AuthService,
     LocalStrategy,
     JwtStrategy,
-    {
-      provide: APP_GUARD,
-      useClass: JwtAuthGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: JwtAuthGuard,
+    // },
   ],
 })
 export class AuthModule {}

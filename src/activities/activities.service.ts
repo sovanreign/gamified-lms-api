@@ -19,12 +19,21 @@ export class ActivitiesService {
   }
 
   findAll() {
-    return this.db.activity.findMany();
+    return this.db.activity.findMany({
+      orderBy: [{ isOpen: 'desc' }, { createdAt: 'asc' }],
+    });
   }
 
   findOne(id: string) {
     return this.db.activity.findUniqueOrThrow({
       where: { id },
+      include: {
+        StudentActivity: {
+          include: {
+            student: true,
+          },
+        },
+      },
     });
   }
 

@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { LessonsService } from './lessons.service';
 import { CreateLessonDto } from './dto/create-lesson.dto';
@@ -27,13 +28,13 @@ export class LessonsController {
   }
 
   @Get()
-  findAll() {
-    return this.lessonsService.findAll();
+  findAll(@Query('moduleId') moduleId?: string) {
+    return this.lessonsService.findAll(moduleId);
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.lessonsService.findOne(+id);
+    return this.lessonsService.findOne(id);
   }
 
   @Patch(':id')

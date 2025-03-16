@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateVideoDto } from './dto/create-video.dto';
 import { UpdateVideoDto } from './dto/update-video.dto';
 import { DatabaseService } from 'src/database/database.service';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class VideosService {
@@ -13,12 +14,23 @@ export class VideosService {
     });
   }
 
-  findAll() {
-    return this.db.video.findMany();
+  findAll(q?: string) {
+    let where: Prisma.VideoWhereInput = {};
+
+    if (q) {
+      where.OR = [{ name: { contains: q, mode: 'insensitive' } }];
+    }
+
+    return this.db.video.findMany({
+      where,
+      orderBy: {
+        isOpen: 'desc',
+      },
+    });
   }
 
   async findOne(id: string) {
-    await this.db.video.findUniqueOrThrow({
+    return await this.db.video.findUniqueOrThrow({
       where: { id },
     });
   }

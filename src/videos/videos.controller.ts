@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   HttpCode,
+  Query,
 } from '@nestjs/common';
 import { VideosService } from './videos.service';
 import { CreateVideoDto } from './dto/create-video.dto';
@@ -22,8 +23,8 @@ export class VideosController {
   }
 
   @Get()
-  findAll() {
-    return this.videosService.findAll();
+  findAll(@Query('q') q?: string) {
+    return this.videosService.findAll(q);
   }
 
   @Get(':id')
