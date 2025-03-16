@@ -37,7 +37,7 @@ model User {
   expPoints  Int     @default(0)
   level      Int     @default(1)
   teacherId  String?
-  teacher    User?   @relation(name: "TeacherStudents", fields: [teacherId], references: [id])
+  teacher    User?   @relation(name: "TeacherStudents", fields: [teacherId], references: [id], onDelete: SetNull)
   students   User[]  @relation(name: "TeacherStudents")
 
   createdAt       DateTime          @default(now())
@@ -68,7 +68,7 @@ model Lesson {
   isOpen      Boolean @default(false)
 
   moduleId String
-  module   Module @relation(fields: [moduleId], references: [id])
+  module   Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
 
   createdAt     DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
@@ -78,9 +78,9 @@ model Lesson {
 model StudentLesson {
   id          String  @id @default(uuid())
   studentId   String
-  student     User    @relation(fields: [studentId], references: [id])
+  student     User    @relation(fields: [studentId], references: [id], onDelete: Cascade)
   lessonId    String
-  lesson      Lesson  @relation(fields: [lessonId], references: [id])
+  lesson      Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   isCompleted Boolean @default(true)
 
   createdAt DateTime @default(now())
@@ -115,9 +115,9 @@ model Activity {
 model StudentActivity {
   id          String   @id @default(uuid())
   studentId   String
-  student     User     @relation(fields: [studentId], references: [id])
+  student     User     @relation(fields: [studentId], references: [id], onDelete: Cascade)
   activityId  String
-  activity    Activity @relation(fields: [activityId], references: [id])
+  activity    Activity @relation(fields: [activityId], references: [id], onDelete: Cascade)
   score       Int
   isCompleted Boolean  @default(true)
 

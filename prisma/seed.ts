@@ -24,8 +24,31 @@ async function main() {
     update: {},
     create: {
       name: 'In the Beginning God Created the World',
-      description: 'Lorem ipsum',
+      description:
+        'Discover how God created the world with love and purpose. This module explores the beauty of His creation, teaching children to appreciate and care for the world around them.',
       imageUrl: 'module1.png',
+    },
+  });
+
+  const module2 = await prisma.module.upsert({
+    where: { name: 'First Day of Creation' },
+    update: {},
+    create: {
+      name: 'First Day of Creation',
+      description:
+        'Learn about the first day of creation, when God created light, separating day from night, and bringing the world into existence.',
+      imageUrl: 'module2.png',
+    },
+  });
+
+  const module3 = await prisma.module.upsert({
+    where: { name: 'Second Day of Creation' },
+    update: {},
+    create: {
+      name: 'Second Day of Creation',
+      description:
+        'Discover how God created the sky and separated the waters, forming the heavens on the second day of creation.',
+      imageUrl: 'module3.png',
     },
   });
 
@@ -33,8 +56,9 @@ async function main() {
     where: { content: 'lesson1' },
     update: {},
     create: {
-      name: 'Lesson 1',
-      description: 'Lorem ipsum dolor set amit',
+      name: 'In the Beginning God Created the World',
+      description:
+        "explores the story of creation, teaching how God made the earth, sky, seas, and all living things with love and purpose. This lesson helps children appreciate the beauty of God's creation and understand their special place in it. 🌍✨",
       content: 'lesson1',
       points: 10,
       moduleId: module1.id,
@@ -44,21 +68,24 @@ async function main() {
     where: { content: 'lesson2' },
     update: {},
     create: {
-      name: 'Lesson 2',
-      description: 'Lorem ipsum dolor set amit',
+      name: 'God Created Boys and Girls',
+      description:
+        " teaches that every child is made in God's image, special and loved just as they are. This lesson helps children appreciate their uniqueness, respect differences, and understand that God has a wonderful plan for each of them. 👦👧✨",
       content: 'lesson2',
       points: 10,
       moduleId: module1.id,
     },
   });
-
-  const module2 = await prisma.module.upsert({
-    where: { name: 'First Day of Creation' },
+  await prisma.lesson.upsert({
+    where: { content: 'lesson3' },
     update: {},
     create: {
-      name: 'First Day of Creation',
-      description: 'Lorem ipsum',
-      imageUrl: 'module2.png',
+      name: 'My Favorite Foods',
+      description:
+        ' explores the wonderful variety of foods God has provided. Children will learn to recognize healthy choices, appreciate the importance of nutrition, and understand how good food helps them grow strong and stay healthy. 🍎🥦🍞✨',
+      content: 'lesson3',
+      points: 10,
+      moduleId: module1.id,
     },
   });
 
@@ -68,7 +95,7 @@ async function main() {
     create: {
       name: 'Count The Fruit',
       description: 'Lorem ipsum',
-      imageUrl: 'module.png',
+      imageUrl: 'ctf.png',
       content: 'count-the-fruit',
       points: 10,
     },
@@ -79,7 +106,7 @@ async function main() {
     create: {
       name: 'Find The Missing Letter',
       description: 'Lorem ipsum',
-      imageUrl: 'module.png',
+      imageUrl: 'ftml.png',
       content: 'find-the-missing-letter',
       points: 10,
     },
@@ -90,7 +117,7 @@ async function main() {
     create: {
       name: 'Name The Color',
       description: 'Lorem ipsum',
-      imageUrl: 'module.png',
+      imageUrl: 'ntc.png',
       content: 'name-the-color',
       points: 10,
     },
