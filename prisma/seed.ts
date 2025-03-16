@@ -28,6 +28,8 @@ async function main() {
       password: await passwordEncryption('password'),
       role: 'Teacher',
       firstName: 'Amelia',
+      lastName: 'Rose',
+      address: 'Pangasinan',
       age: 42,
       gender: 'Female',
       uniqueId: 'TS-2025-010',
@@ -259,7 +261,7 @@ async function main() {
     update: {},
     create: {
       name: 'Count The Fruit',
-      description: 'Lorem ipsum',
+      description: 'Count the fruits to enhance basic math skills.',
       imageUrl: 'ctf.png',
       content: 'count-the-fruit',
       points: 10,
@@ -270,7 +272,7 @@ async function main() {
     update: {},
     create: {
       name: 'Find The Missing Letter',
-      description: 'Lorem ipsum',
+      description: 'Fill in the blanks to improve spelling skills.',
       imageUrl: 'ftml.png',
       content: 'find-the-missing-letter',
       points: 10,
@@ -281,7 +283,7 @@ async function main() {
     update: {},
     create: {
       name: 'Name The Color',
-      description: 'Lorem ipsum',
+      description: 'Identify colors to boost visual recognition.',
       imageUrl: 'ntc.png',
       content: 'name-the-color',
       points: 10,
