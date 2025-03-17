@@ -7,6 +7,7 @@ import { ModulesModule } from './modules/modules.module';
 import { LessonsModule } from './lessons/lessons.module';
 import { VideosModule } from './videos/videos.module';
 import { ActivitiesModule } from './activities/activities.module';
+import { AnnouncementsModule } from './announcements/announcements.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { ActivitiesModule } from './activities/activities.module';
     LessonsModule,
     VideosModule,
     ActivitiesModule,
+    AnnouncementsModule,
   ],
   controllers: [],
   providers: [],
