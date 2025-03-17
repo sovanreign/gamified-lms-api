@@ -168,6 +168,16 @@ async function main() {
     },
   });
 
+  const module3 = await prisma.module.upsert({
+    where: { name: 'Second Day of Creation' },
+    update: {},
+    create: {
+      name: 'Second Day of Creation',
+      description: 'Learn about the second day of creation',
+      imageUrl: 'module3.png',
+    },
+  });
+
   // 🔹 Seed Lessons
   const lessons = [
     {
