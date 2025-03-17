@@ -24,6 +24,13 @@ import { extname } from 'path';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @Delete(':id/activities')
+  async removeUserActivities(@Param('id') userId: string) {
+    console.log('CONT');
+
+    return this.usersService.removeUserActivities(userId);
+  }
+
   @Patch(':id/upload')
   @UseInterceptors(
     FileInterceptor('profile', {

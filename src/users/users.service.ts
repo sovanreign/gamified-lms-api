@@ -79,6 +79,8 @@ export class UsersService {
       where: { id },
       include: {
         teacher: true,
+        StudentActivity: true,
+        StudentLesson: true,
       },
     });
   }
@@ -120,6 +122,14 @@ export class UsersService {
 
     await this.db.user.delete({
       where: { id },
+    });
+  }
+
+  async removeUserActivities(userId: string) {
+    console.log('YES');
+
+    await this.db.studentActivity.deleteMany({
+      where: { studentId: userId },
     });
   }
 }
