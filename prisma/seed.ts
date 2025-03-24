@@ -201,6 +201,46 @@ async function main() {
       points: 10,
       moduleId: module1.id,
     },
+    {
+      name: 'First Day of Creation',
+      description:
+        'On the first day, God made light and separated it from the darkness, calling the light “day” and the darkness “night.”',
+      content: 'lesson4',
+      points: 10,
+      moduleId: module2.id,
+    },
+    {
+      name: 'God Provision for Our Needs',
+      description:
+        'God lovingly provides everything we need—like food, water, family, and a safe place to live—because He cares for us every day.',
+      content: 'lesson5',
+      points: 10,
+      moduleId: module2.id,
+    },
+    {
+      name: "God's Creation: Colors",
+      description:
+        'God filled the world with beautiful colors—like the blue sky, green trees, and bright flowers—to make His creation joyful and full of wonder.',
+      content: 'lesson6',
+      points: 10,
+      moduleId: module2.id,
+    },
+    {
+      name: 'Second Day of Creation',
+      description:
+        'On the second day, God made the sky and separated the waters above from the waters below, creating the heavens.',
+      content: 'lesson7',
+      points: 10,
+      moduleId: module3.id,
+    },
+    {
+      name: "God's Creation of the Sky",
+      description:
+        'God created the sky above us, spreading it like a beautiful blanket of blue to cover the earth and hold the clouds, sun, moon, and stars.',
+      content: 'lesson8',
+      points: 10,
+      moduleId: module3.id,
+    },
   ];
 
   for (const lesson of lessons) {
