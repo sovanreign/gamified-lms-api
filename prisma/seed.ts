@@ -184,21 +184,21 @@ async function main() {
       name: 'In the Beginning God Created the World',
       description: "Explores the story of creation and God's love.",
       content: 'lesson1',
-      points: 10,
+      points: 5,
       moduleId: module1.id,
     },
     {
       name: 'God Created Boys and Girls',
       description: "Teaches that every child is special in God's image.",
       content: 'lesson2',
-      points: 10,
+      points: 5,
       moduleId: module1.id,
     },
     {
       name: 'My Favorite Foods',
       description: 'Helps children learn about nutrition and food choices.',
       content: 'lesson3',
-      points: 10,
+      points: 5,
       moduleId: module1.id,
     },
     {
@@ -206,7 +206,7 @@ async function main() {
       description:
         'On the first day, God made light and separated it from the darkness, calling the light “day” and the darkness “night.”',
       content: 'lesson4',
-      points: 10,
+      points: 5,
       moduleId: module2.id,
     },
     {
@@ -214,7 +214,7 @@ async function main() {
       description:
         'God lovingly provides everything we need—like food, water, family, and a safe place to live—because He cares for us every day.',
       content: 'lesson5',
-      points: 10,
+      points: 5,
       moduleId: module2.id,
     },
     {
@@ -222,7 +222,7 @@ async function main() {
       description:
         'God filled the world with beautiful colors—like the blue sky, green trees, and bright flowers—to make His creation joyful and full of wonder.',
       content: 'lesson6',
-      points: 10,
+      points: 5,
       moduleId: module2.id,
     },
     {
@@ -230,7 +230,7 @@ async function main() {
       description:
         'On the second day, God made the sky and separated the waters above from the waters below, creating the heavens.',
       content: 'lesson7',
-      points: 10,
+      points: 5,
       moduleId: module3.id,
     },
     {
@@ -238,7 +238,7 @@ async function main() {
       description:
         'God created the sky above us, spreading it like a beautiful blanket of blue to cover the earth and hold the clouds, sun, moon, and stars.',
       content: 'lesson8',
-      points: 10,
+      points: 5,
       moduleId: module3.id,
     },
   ];
@@ -273,6 +273,13 @@ async function main() {
       imageUrl: 'ntc.png',
       content: 'name-the-color',
       points: 10,
+    },
+    {
+      name: 'Match The Shape',
+      description: 'Identify shape to match visual counterpart.',
+      imageUrl: 'mts.png',
+      content: 'match-the-shape',
+      points: 5,
     },
   ];
 
