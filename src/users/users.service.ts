@@ -92,13 +92,15 @@ export class UsersService {
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    if (updateUserDto.password) {
-      updateUserDto.password = await passwordEncryption(updateUserDto.password);
+    const data: any = { ...updateUserDto };
+
+    if (typeof data.password === 'string') {
+      data.password = await passwordEncryption(data.password);
     }
 
     await this.db.user.update({
       where: { id },
-      data: updateUserDto,
+      data,
     });
   }
 
